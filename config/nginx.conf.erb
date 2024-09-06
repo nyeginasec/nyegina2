@@ -7,8 +7,8 @@ events {
 http {
     server {
         listen 80;
-        root public;
-        index index.html;
+        root /public;
+        index index.php;
 
         location / {
             try_files $uri $uri/ =404;
