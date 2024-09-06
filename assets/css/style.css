@@ -1,4 +1,4 @@
-/* Base Styles */
+/* Reset default styling */
 html {
     scroll-behavior: smooth;
   }
@@ -170,20 +170,10 @@ html {
     right: 10px;
   }
   
-  /* Smooth Scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* AOS animation sections */
-  [data-aos] {
-    opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
+  /* Fade-in Effect */
   .fade-in {
     opacity: 0;
-    transform: translateY(20px); /* Optional: Moves the section down initially */
+    transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
   }
   
@@ -242,4 +232,68 @@ html {
       padding: 8px;
     }
   }
+  /* Ensure smooth transitions */
+.slide {
+    transition: opacity 0.5s ease;
+  }
   
+  /* Make sure active class is handled */
+  .slide.active {
+    opacity: 1 !important;
+  }
+  /* Horizontal Slider Styles */
+.horizontal-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px; /* Adjust based on your design */
+    margin: 0 auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 40px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+}

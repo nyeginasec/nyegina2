@@ -1,23 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const sections = document.querySelectorAll('.fade-in');
+const sections = document.querySelectorAll('.fade-in');
 
-    function checkVisibility() {
-        const triggerBottom = window.innerHeight / 5 * 4; // Adjust this value if needed
+window.addEventListener('scroll', checkVisibility);
 
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
+function checkVisibility() {
+    const triggerBottom = window.innerHeight / 5 * 4;
 
-            if (sectionTop < triggerBottom) {
-                section.classList.add('visible');
-            } else {
-                section.classList.remove('visible');
-            }
-        });
-    }
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
 
-    // Initial check
-    checkVisibility();
-
-    // Check on scroll
-    window.addEventListener('scroll', checkVisibility);
-});
+        if (sectionTop < triggerBottom) {
+            section.classList.add('visible');
+        } else {
+            section.classList.remove('visible');
+        }
+    });
+}
