@@ -3,9 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Nyegina Secondary School provides high-quality education to empower future leaders. Learn more about our programs and facilities.">
+    <meta property="og:title" content="Nyegina Secondary School">
+    <meta property="og:description" content="Empowering Future Leaders at Nyegina Secondary School. Learn more about our programs and facilities.">
+    <meta property="og:image" content="assets/images/hero-image.jpg">
+    <meta property="og:url" content="http://yourwebsite.com">
+    <title>Nyegina School</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="vendor/aos/aos.css">
+    <style>
+        /* Horizontal Slider Styles */
+.horizontal-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    box-sizing: border-box;
+}
+
+.slide img, .slide video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Slider Navigation Buttons */
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+    </style>
 </head>
 <body>
-    <h1>hahahahahahhahahahahah</h1>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Nyegina</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#library">Library</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Nyegina Secondary School</h1>
+            <p>Empowering Future Leaders</p>
+            <a href="#learn-more" class="cta-btn">Learn More</a>
+        </div>
+    </header>
+<!-- Horizontal Slider Section (Images) -->
+<section class="horizontal-slider">
+    <div class="slider-wrapper" id="image-slider">
+        <div class="slide">
+            <a href="link-to-page1.html">
+                <img src="assets/images/1.jpg" alt="Event 1">
+            </a>
+        </div>
+        <div class="slide">
+            <a href="link-to-page2.html">
+                <img src="assets/images/2.jpg" alt="Event 2">
+            </a>
+        </div>
+        <div class="slide">
+            <a href="link-to-page3.html">
+                <img src="assets/images/3.jpg" alt="Event 3">
+            </a>
+        </div>
+        <div class="slide">
+            <a href="link-to-page4.html">
+                <img src="assets/images/4.jpg" alt="Event 4">
+            </a>
+        </div>
+    </div>
+    <button class="prev" onclick="moveSlide('image-slider', -1)">&#10094;</button>
+    <button class="next" onclick="moveSlide('image-slider', 1)">&#10095;</button>
+</section>
+
+<!-- Horizontal Slider Section (Videos) -->
+<!-- <section class="horizontal-slider">
+    <div class="slider-wrapper" id="video-slider">
+        <div class="slide">
+            <a href="link-to-page1.html">
+                <video  width="100%" poster="assets/videos/1-poster.jpg" autoplay muted loop>
+                    <source src="assets/videos/1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+        <div class="slide">
+            <a href="link-to-page2.html">
+                <video  width="100%" poster="assets/videos/2-poster.jpg"autoplay muted loop>
+                    <source src="assets/videos/2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+    </div> -->
+    <!-- <button class="prev" onclick="moveSlide('video-slider', -1)">&#10094;</button>
+    <button class="next" onclick="moveSlide('video-slider', 1)">&#10095;</button> -->
+</section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="content-section fade-in">
+        <h2>About Nyegina Secondary School</h2>
+        <p>Nyegina Secondary School is dedicated to providing high-quality education to prepare students for a bright future...</p>
+    </section>
+
+
+    <section id="Academics" class="content-section fade-in">
+        <h2>About Nyegina Secondary School</h2>
+        <p>Nyegina Secondary School is dedicated to providing high-quality education to prepare students for a bright future...</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nyegina Secondary School | All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/slider.js"></script>
+    <script src="vendor/aos/aos.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script>
+        AOS.init();
+        
+        let currentSlide = 0;
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+            const offset = -currentSlide * 100;
+            document.querySelector('.slider-wrapper').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+   <!-- Remove this block to avoid conflicts -->
+<script>
+    let currentSlides = {
+    'image-slider': 0,
+    'video-slider': 0
+};
+
+function moveSlide(sliderId, step) {
+    const slider = document.getElementById(sliderId);
+    const slides = slider.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    currentSlides[sliderId] = (currentSlides[sliderId] + step + totalSlides) % totalSlides;
+    const offset = -currentSlides[sliderId] * 100;
+
+    slider.style.transform = `translateX(${offset}%)`;
+}
+</script>
+
 </body>
 </html>
