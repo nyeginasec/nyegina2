@@ -1,9 +1,9 @@
 {
-    "root": "/public/",
+    "root": "public/",
     "routes": [
       {
         "src": ".*",
-        "dest": "index.php"
+        "dest": "index.html"
       }
     ]
   }
