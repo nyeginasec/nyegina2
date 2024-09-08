@@ -3,154 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nyegina Secondary School provides high-quality education to empower future leaders. Learn more about our programs and facilities.">
+    <meta name="description" content="Nyegina Secondary School offers high-quality education with a commitment to excellence. Explore our programs and facilities.">
     <meta property="og:title" content="Nyegina Secondary School">
-    <meta property="og:description" content="Empowering Future Leaders at Nyegina Secondary School. Learn more about our programs and facilities.">
+    <meta property="og:description" content="Empowering students with exceptional education at Nyegina Secondary School. Learn more about our offerings.">
     <meta property="og:image" content="assets/images/hero-image.jpg">
     <meta property="og:url" content="http://yourwebsite.com">
-    <title>Nyegina School</title>
+    <title>Nyegina Secondary School</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/new.css">
     <link rel="stylesheet" href="vendor/aos/aos.css">
     <style>
-        /* Horizontal Slider Styles */
-.horizontal-slider {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-.slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-}
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
 
-.slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-    box-sizing: border-box;
-}
+        .topnav a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+        }
 
-.slide img, .slide video {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-/* Slider Navigation Buttons */
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    z-index: 10;
-}
+        .topnav .icon {
+            display: none;
+        }
 
-button.prev {
-    left: 10px;
-}
+        .language-selector {
+            margin-left: auto;
+        }
 
-button.next {
-    right: 10px;
-}
+        .language-selector select {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
 
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                display: block;
+            }
+            .topnav.responsive {
+                position: relative;
+            }
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                display: block;
+                text-align: left;
+            }
+        }
+
+        .hero-section {
+            position: relative;
+            color: white;
+            text-align: center;
+            background: url('assets/images/hero-image.jpg') no-repeat center center/cover;
+            height: 400px;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero-content h1, .hero-content p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+        .content-section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Nyegina</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#academics">Academics</a></li>
-                <li><a href="#library">Library</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Home</a>
+        <a href="#about" id="aboutText">About</a>
+        <a href="#contact">Contact</a>
+        <a href="library.html" id="libraryText">Library</a>
+        <a href="#academics" id="academicsText">Academics</a>
+        <div class="language-selector">
+          <select id="languageSelect" onchange="changeLanguage()">
+              <option value="en">English</option>
+              <option value="sw">Swahili</option>
+          </select>
+      </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="hero-content">
-            <h1>Welcome to Nyegina Secondary School</h1>
-            <p>Empowering Future Leaders</p>
-            <a href="#learn-more" class="cta-btn">Learn More</a>
+            <h1 id="welcomeText" style="color: azure;">Welcome to Nyegina Secondary School</h1>
+            <p id="mottoText">Where knowledge is Power</p>
         </div>
     </header>
-<!-- Horizontal Slider Section (Images) -->
-<section class="horizontal-slider">
-    <div class="slider-wrapper" id="image-slider">
-        <div class="slide">
-            <a href="link-to-page1.html">
-                <img src="assets/images/1.jpg" alt="Event 1">
-            </a>
+
+    <!-- Horizontal Slider Section -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="assets/images/n1.jpg" alt="Slide 1">
         </div>
-        <div class="slide">
-            <a href="link-to-page2.html">
-                <img src="assets/images/2.jpg" alt="Event 2">
-            </a>
+        <div class="mySlides fade">
+            <img src="assets/images/n2.jpg" alt="Slide 2">
         </div>
-        <div class="slide">
-            <a href="link-to-page3.html">
-                <img src="assets/images/3.jpg" alt="Event 3">
-            </a>
-        </div>
-        <div class="slide">
-            <a href="link-to-page4.html">
-                <img src="assets/images/4.jpg" alt="Event 4">
-            </a>
+        <div class="mySlides fade">
+            <img src="assets/images/n3.jpg" alt="Slide 3">
         </div>
     </div>
-    <button class="prev" onclick="moveSlide('image-slider', -1)">&#10094;</button>
-    <button class="next" onclick="moveSlide('image-slider', 1)">&#10095;</button>
-</section>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
 
-<!-- Horizontal Slider Section (Videos) -->
-<!-- <section class="horizontal-slider">
-    <div class="slider-wrapper" id="video-slider">
-        <div class="slide">
-            <a href="link-to-page1.html">
-                <video  width="100%" poster="assets/videos/1-poster.jpg" autoplay muted loop>
-                    <source src="assets/videos/1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </a>
-        </div>
-        <div class="slide">
-            <a href="link-to-page2.html">
-                <video  width="100%" poster="assets/videos/2-poster.jpg"autoplay muted loop>
-                    <source src="assets/videos/2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </a>
-        </div>
-    </div> -->
-    <!-- <button class="prev" onclick="moveSlide('video-slider', -1)">&#10094;</button>
-    <button class="next" onclick="moveSlide('video-slider', 1)">&#10095;</button> -->
-</section>
-
-
-
-    <!-- About Section -->
-    <section id="about" class="content-section fade-in">
-        <h2>About Nyegina Secondary School</h2>
-        <p>Nyegina Secondary School is dedicated to providing high-quality education to prepare students for a bright future...</p>
+    <!-- Content Sections -->
+    <section id="academics" class="content-section fade-in">
+        <h2 id="academicsText">Academics</h2>
+        <p>Nyegina Secondary School is dedicated to providing high-quality education...</p>
     </section>
 
-
-    <section id="Academics" class="content-section fade-in">
-        <h2>About Nyegina Secondary School</h2>
-        <p>Nyegina Secondary School is dedicated to providing high-quality education to prepare students for a bright future...</p>
+    <section id="about" class="content-section fade-in">
+        <h2 id="aboutTitle">About Nyegina Secondary School</h2>
+        <p id="aboutContent">Nyegina Secondary School is dedicated to providing high-quality education to prepare students for a bright future...</p>
     </section>
 
     <!-- Footer -->
@@ -158,39 +214,78 @@ button.next {
         <p>&copy; 2024 Nyegina Secondary School | All rights reserved.</p>
     </footer>
 
-    <script src="assets/js/slider.js"></script>
+    <script>
+        // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000);
+        }
+
+        // Responsive Navbar
+        function myFunction() {
+            const nav = document.getElementById("myTopnav");
+            if (nav.className === "topnav") {
+                nav.className += " responsive";
+            } else {
+                nav.className = "topnav";
+            }
+        }
+
+        // Language Switcher
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            const translations = {
+                en: {
+                    welcomeText: "Welcome to Nyegina Secondary School",
+                    mottoText: "Where knowledge is Power",
+                    aboutText: "About",
+                    academicsText: "Academics",
+                    aboutTitle: "About Nyegina Secondary School",
+                    aboutContent: "Nyegina Secondary School is dedicated to providing high-quality education to prepare students for a bright future..."
+                },
+                sw: {
+                    welcomeText: "Karibu Nyegina Secondary School",
+                    mottoText: "Mahali ambapo maarifa ni nguvu",
+                    aboutText: "Kuhusu",
+                    academicsText: "Masomo",
+                    aboutTitle: "Kuhusu Shule ya Sekondari ya Nyegina",
+                    aboutContent: "Shule ya Sekondari ya Nyegina imejizatiti kutoa elimu bora ili kuandaa wanafunzi kwa ajili ya maisha yenye mwangaza..."
+                }
+            };
+
+            document.getElementById('welcomeText').innerText = translations[lang].welcomeText;
+            document.getElementById('mottoText').innerText = translations[lang].mottoText;
+            document.getElementById('aboutText').innerText = translations[lang].aboutText;
+            document.getElementById('academicsText').innerText = translations[lang].academicsText;
+            document.getElementById('aboutTitle').innerText = translations[lang].aboutTitle;
+            document.getElementById('aboutContent').innerText = translations[lang].aboutContent;
+        }
+
+        // Fade-in effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(element => {
+                element.classList.add('visible');
+            });
+        });
+    </script>
     <script src="vendor/aos/aos.js"></script>
-    <script src="assets/js/animations.js"></script>
     <script>
         AOS.init();
-        
-        let currentSlide = 0;
-        function moveSlide(step) {
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-            const offset = -currentSlide * 100;
-            document.querySelector('.slider-wrapper').style.transform = `translateX(${offset}%)`;
-        }
     </script>
-   <!-- Remove this block to avoid conflicts -->
-<script>
-    let currentSlides = {
-    'image-slider': 0,
-    'video-slider': 0
-};
-
-function moveSlide(sliderId, step) {
-    const slider = document.getElementById(sliderId);
-    const slides = slider.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-
-    currentSlides[sliderId] = (currentSlides[sliderId] + step + totalSlides) % totalSlides;
-    const offset = -currentSlides[sliderId] * 100;
-
-    slider.style.transform = `translateX(${offset}%)`;
-}
-</script>
-
 </body>
 </html>
